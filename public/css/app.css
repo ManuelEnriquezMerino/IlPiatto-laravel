@@ -871,10 +871,15 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
+.bg-royalblue-3 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(114 128 162 / var(--tw-bg-opacity));
+}
 .bg-indigo-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(238 242 255 / var(--tw-bg-opacity));
 }
+
 .fill-current {
   fill: currentColor;
 }
