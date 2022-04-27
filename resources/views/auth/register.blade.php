@@ -1,13 +1,12 @@
-<x-guest-layout>
-    <x-auth-card>
+<x-default-layout>
 
-        <x-slot name="btnInicio">     
-            <x-button>
-                        <a href="/">
-                            {{ __('Inicio') }}
-                        </a>        
-            </x-button>
-        </x-slot>
+    <x-top-left-button>
+        <a href="/">
+            {{ __('Inicio') }}
+        </a>  
+    </x-top-left-button>
+
+    <x-auth-card>
 
         <x-slot name="logo">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
@@ -63,4 +62,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-default-layout>
