@@ -871,9 +871,13 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
-.bg-royalblue-3 {
+.bg-cloud-gray {
   --tw-bg-opacity: 1;
-  background-color: rgb(114 128 162 / var(--tw-bg-opacity));
+  background-color: rgb(57 62 70 / var(--tw-bg-opacity));
+}
+.bg-light-gray {
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 238 238 / var(--tw-bg-opacity));
 }
 .bg-indigo-50 {
   --tw-bg-opacity: 1;
