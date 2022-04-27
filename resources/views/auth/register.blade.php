@@ -1,9 +1,16 @@
 <x-guest-layout>
     <x-auth-card>
+
+        <x-slot name="btnInicio">     
+            <x-button>
+                        <a href="/">
+                            {{ __('Inicio') }}
+                        </a>        
+            </x-button>
+        </x-slot>
+
         <x-slot name="logo">
-            <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
         </x-slot>
 
         <!-- Validation Errors -->
