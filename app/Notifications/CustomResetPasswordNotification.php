@@ -77,7 +77,7 @@ class CustomResetPasswordNotification extends Notification
         return (new MailMessage)
             ->subject('Reinicio de Contraseña')
             ->line('Le enviamos este correo ya que recibimos una solicitud de reinicio de contraseña de esta cuenta')
-            ->action('Reiniciar contraseña', url('password/reset', $this->token))
+            ->action('Reiniciar contraseña', url('reset-password', $this->token))
             ->line('Si usted no ha solicitado esto puede ignorar este correo.');
     }
 
