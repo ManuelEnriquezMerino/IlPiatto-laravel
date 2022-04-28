@@ -1,9 +1,15 @@
-<x-guest-layout>
+<x-default-layout>
+    
+    <x-top-left-button>
+        <a href="/login">
+            {{ __('Volver') }}
+        </a>  
+    </x-top-left-button>
+
+
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -33,4 +39,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-default-layout>
