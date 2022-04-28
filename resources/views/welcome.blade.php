@@ -20,7 +20,7 @@
         <div class="min-h-screen bg-cloud-gray font-sans text-gray-900 flex flex-col sm:justify-center items-center">
 
             <div>
-                <img src="{{ asset('/images/logo.png')}}" alt="Il Piatto" style="width:164px;">
+                <img src="{{ asset('/images/logo-blanco.png')}}" alt="Il Piatto" style="width:164px;">
             </div>
 
             <div class="p-6">
