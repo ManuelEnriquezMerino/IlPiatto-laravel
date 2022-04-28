@@ -17,7 +17,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="antialiased">
-        <div class="min-h-screen bg-cloud-gray font-sans text-gray-900 flex flex-col sm:justify-center items-center">
+        <div class="min-h-screen bg-cloud-gray font-sans text-gray-900 flex flex-col sm:justify-center items-center p-2">
 
             <div>
                 <img src="{{ asset('/images/logo-blanco.png')}}" alt="Il Piatto" style="width:164px;">
@@ -25,7 +25,7 @@
 
             <div class="p-6">
                 @if (Route::has('login'))
-                    <div class="hidden sm:block">
+                    <div class="sm:block">
                         @auth
                             <x-button class="ml-3">
                                 <a href='/dashboard'>
