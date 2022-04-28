@@ -25,13 +25,19 @@
 
             <div class="p-6">
                 @if (Route::has('login'))
-                    <div class="sm:block">
+                    <div class="inline-flex">
                         @auth
                             <x-button class="ml-3">
                                 <a href='/dashboard'>
                                     {{ __('Dashboard') }}
                                 </a>
-                            </x-button>       
+                            </x-button>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                    <x-button class="ml-3" :href="route('logout')">
+                                            {{ __('Cerrar sesión') }}
+                                    </x-button>
+                            </form>                            
                         @else
                             <x-button class="ml-3">
                                 <a href='/login'>
