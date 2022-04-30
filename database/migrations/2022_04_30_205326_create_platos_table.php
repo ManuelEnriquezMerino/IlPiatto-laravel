@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('platos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->text('descripcion');
+            //foto
+            $table->integer('precio');        
             $table->timestamps();
         });
     }

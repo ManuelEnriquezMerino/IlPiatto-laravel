@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('opcionales', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->text('descripcion');
+            $table->integer('precio');
             $table->timestamps();
         });
     }
