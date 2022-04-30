@@ -13,10 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pedidos-platos-opcionales', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        //
     }
 
     /**
