@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Restriccion extends Model
 {
     use HasFactory;
+
+    public function categorias(){
+        return $this->belongsToMany('Categoria','categoria_plato');
+    }
+
+    public function platos(){
+        return $this->belongsToMany('Plato','plato_restriccion');
+    }
 }
