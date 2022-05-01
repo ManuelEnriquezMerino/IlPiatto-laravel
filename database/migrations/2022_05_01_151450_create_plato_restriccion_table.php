@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('plato_restriccion', function (Blueprint $table) {
             $table->id();
+            $table->integer('plato_id')->unsigned()->index();
+            $table->foreign('plato_id')->references('id')->on('platos')->onDelete('cascade');
+            $table->integer('restriccion_id')->unsigned()->index();
+            $table->foreign('restriccion_id')->references('id')->on('restricciones')->onDelete('cascade');
             $table->timestamps();
         });
     }

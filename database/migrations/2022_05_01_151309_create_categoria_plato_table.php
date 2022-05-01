@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('categoria_plato', function (Blueprint $table) {
             $table->id();
+            $table->integer('categoria_id')->unsigned()->index();
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->integer('plato_id')->unsigned()->index();
+            $table->foreign('plato_id')->references('id')->on('platos')->onDelete('cascade');
             $table->timestamps();
         });
     }
