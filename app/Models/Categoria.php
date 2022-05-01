@@ -12,8 +12,4 @@ class Categoria extends Model
     public function platos(){
         return $this->belongsToMany('Plato','categoria_plato');
     }
-
-    public function restricciones(){
-        return $this->belongsToMany('Restriccion','plato_restriccion');
-    }
 }
