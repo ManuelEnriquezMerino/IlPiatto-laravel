@@ -1,0 +1,1 @@
+<img src="{{ asset('/images/logo-blanco.png')}}" alt="Il Piatto" style="width:105px;">
