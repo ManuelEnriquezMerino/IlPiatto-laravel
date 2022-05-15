@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('platos', [PlatoController::class, 'index']);
+Route::resource('platos', PlatoController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

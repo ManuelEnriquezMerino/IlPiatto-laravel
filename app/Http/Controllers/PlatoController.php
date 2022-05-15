@@ -14,7 +14,8 @@ class PlatoController extends Controller
      */
     public function index()
     {
-        $datos = Plato::all();
+        $platos = Plato::all();
+        return view('plato.index')->with('platos',$platos);
     }
 
     /**
@@ -24,7 +25,7 @@ class PlatoController extends Controller
      */
     public function create()
     {
-        //
+        return view('plato.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class PlatoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $platos = new Plato();
+
+        $platos->nombre = $request->get('nombre');
+        $platos->descripcion = $request->get('descripcion');
+        $platos->precio = $request->get('precio');
+
+        $platos->save();
+
+        return redirect('/platos');
     }
 
     /**
@@ -57,7 +66,8 @@ class PlatoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $plato = Plato::find($id);
+        return view('plato.edit')->with('plato',$plato);
     }
 
     /**
@@ -69,7 +79,15 @@ class PlatoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $plato = Plato::find($id);
+
+        $plato->nombre = $request->get('nombre');
+        $plato->descripcion = $request->get('descripcion');
+        $plato->precio = $request->get('precio');
+
+        $plato->save();
+
+        return redirect('/platos');
     }
 
     /**
@@ -80,6 +98,8 @@ class PlatoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $plato = Plato::find($id);
+        $plato->delete();
+        return redirect('/platos');
     }
 }
