@@ -1,5 +1,9 @@
 @extends('layouts.plantilla')
 
+@section('content_header')
+<title>Crear Plato</title>
+@endsection
+
 @section('contenido')
     <h2>Crear Plato</h2>
 

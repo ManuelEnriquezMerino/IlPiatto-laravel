@@ -1,8 +1,10 @@
 @extends('layouts.plantilla')
 
-@section('contenido')
-    <h2>Editar Plato</h2>
+@section('content_header')
+<title>Editar plato</title>
+@endsection
 
+@section('contenido')
     <form action="/platos/{{$plato->id}}" method="POST">
         @csrf
         @method('PUT')

@@ -1,11 +1,15 @@
 @extends('layouts.plantilla')
 
+@section('content_header')
+<title>Listado de platos</title>
+@endsection
+
 @section('css')
     <link href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 @endsection
 
 @section('contenido')
-<a href="platos/create" class="btn btn-primary mb-2">CREAR</a>
+<a href="platos/create" class="btn btn-primary mt-2 mb-2">CREAR</a>
 
 <table id="platos" class="table table-striped shadow-lg mt-4" style="width:100%">
     <thead class="bg-primary text-white">
