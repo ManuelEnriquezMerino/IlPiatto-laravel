@@ -13,6 +13,9 @@
                     <x-nav-link :href="route('platos.index')" :active="request()->routeIs('platos.index')">
                         {{ __('Platos') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
+                        {{ __('Categorias') }}
+                    </x-nav-link>
                 </div>
             </div>
 
