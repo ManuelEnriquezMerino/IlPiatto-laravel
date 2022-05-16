@@ -18,7 +18,8 @@
             <input id="descripcion" name="descripcion" type="text" class="form-control" tabindex="2">
         </div>
         <div>
-            @include('plato.plato-categorias-create')
+            @include('plato.modalButtons.plato-categorias-create')
+            @include('plato.modalButtons.plato-restricciones-create')
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>

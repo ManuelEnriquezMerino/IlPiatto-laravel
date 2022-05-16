@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Plato;
 use App\Models\Categoria;
+use App\Models\Restriccion;
 
 class PlatoController extends Controller
 {
@@ -31,7 +32,10 @@ class PlatoController extends Controller
     public function create()
     {
         $categorias = Categoria::all();
-        return view('plato.create')->with('categorias',$categorias);
+        $restricciones = Restriccion::all();
+        return view('plato.create')
+                    ->with('categorias',$categorias)
+                    ->with('restricciones',$restricciones);
     }
 
     /**
@@ -51,6 +55,7 @@ class PlatoController extends Controller
         $platos->save();
 
         $platos->categorias()->attach($request->get('categorias'));
+        $platos->restricciones()->attach($request->get('restricciones'));
 
         return redirect('/platos');
     }
@@ -77,10 +82,14 @@ class PlatoController extends Controller
         $plato = Plato::find($id);
         $categorias = Categoria::all();
         $categoriasActuales = Plato::find($id)->categorias()->pluck('categoria_id');
+        $restricciones = Restriccion::all();
+        $restriccionesActuales = Plato::find($id)->restricciones()->pluck('restriccion_id');
         return view('plato.edit')
                                 ->with('plato',$plato)
                                 ->with('categorias',$categorias)
-                                ->with('categoriasActuales',$categoriasActuales);
+                                ->with('categoriasActuales',$categoriasActuales)
+                                ->with('restricciones',$restricciones)
+                                ->with('restriccionesActuales',$restriccionesActuales);
     }
 
     /**
@@ -98,6 +107,7 @@ class PlatoController extends Controller
         $plato->descripcion = $request->get('descripcion');
         $plato->precio = $request->get('precio');
         $plato->categorias()->sync($request->get('categorias'));
+        $plato->restricciones()->sync($request->get('restricciones'));
 
         $plato->save();
 

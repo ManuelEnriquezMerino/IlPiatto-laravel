@@ -19,6 +19,7 @@
             <th scope="col">Descripción</th>
             <!-- <th scope="col">Imagen</th> -->
             <th scope="col">Categorias</th>
+            <th scope="col">Restricciones</th>
             <th scope="col">Precio</th>
             <th scope="col">Acciones</th>
         </tr>
@@ -33,6 +34,11 @@
                 <td>
                     @foreach ($plato->categorias as $categoria)
                         {{$categoria->nombre}}
+                    @endforeach
+                </td>
+                <td>
+                    @foreach ($plato->restricciones as $restriccion)
+                        {{$restriccion->nombre}}
                     @endforeach
                 </td>
                 <td>{{$plato->precio}}</td>

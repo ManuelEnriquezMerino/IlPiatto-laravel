@@ -19,7 +19,8 @@
             <input id="descripcion" name="descripcion" type="text" class="form-control" value="{{$plato->descripcion}}" tabindex="2">
         </div>
         <div>
-            @include('plato.plato-categorias-edit')
+            @include('plato.modalButtons.plato-categorias-edit')
+            @include('plato.modalButtons.plato-restricciones-edit')
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>
