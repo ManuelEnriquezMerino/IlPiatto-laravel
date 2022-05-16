@@ -18,6 +18,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Descripción</th>
             <!-- <th scope="col">Imagen</th> -->
+            <th scope="col">Categorias</th>
             <th scope="col">Precio</th>
             <th scope="col">Acciones</th>
         </tr>
@@ -29,6 +30,11 @@
                 <td>{{$plato->nombre}}</td>
                 <td>{{$plato->descripcion}}</td>
                 <!-- <td>{{$plato->imagen}}</td> -->
+                <td>
+                    @foreach ($plato->categorias as $categoria)
+                        {{$categoria->nombre}}
+                    @endforeach
+                </td>
                 <td>{{$plato->precio}}</td>
                 <td>
                     <form action="{{ route ('platos.destroy',$plato->id)}}" method="POST">

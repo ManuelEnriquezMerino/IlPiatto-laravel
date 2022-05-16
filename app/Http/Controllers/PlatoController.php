@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Plato;
+use App\Models\Categoria;
 
 class PlatoController extends Controller
 {
@@ -18,7 +19,8 @@ class PlatoController extends Controller
     public function index()
     {
         $platos = Plato::all();
-        return view('plato.index')->with('platos',$platos);
+        return view('plato.index')
+                    ->with('platos',$platos);
     }
 
     /**
@@ -28,7 +30,8 @@ class PlatoController extends Controller
      */
     public function create()
     {
-        return view('plato.create');
+        $categorias = Categoria::all();
+        return view('plato.create')->with('categorias',$categorias);
     }
 
     /**
@@ -46,6 +49,8 @@ class PlatoController extends Controller
         $platos->precio = $request->get('precio');
 
         $platos->save();
+
+        $platos->categorias()->attach($request->get('categorias'));
 
         return redirect('/platos');
     }
@@ -70,7 +75,12 @@ class PlatoController extends Controller
     public function edit($id)
     {
         $plato = Plato::find($id);
-        return view('plato.edit')->with('plato',$plato);
+        $categorias = Categoria::all();
+        $categoriasActuales = Plato::find($id)->categorias()->pluck('categoria_id');
+        return view('plato.edit')
+                                ->with('plato',$plato)
+                                ->with('categorias',$categorias)
+                                ->with('categoriasActuales',$categoriasActuales);
     }
 
     /**
@@ -87,6 +97,7 @@ class PlatoController extends Controller
         $plato->nombre = $request->get('nombre');
         $plato->descripcion = $request->get('descripcion');
         $plato->precio = $request->get('precio');
+        $plato->categorias()->sync($request->get('categorias'));
 
         $plato->save();
 

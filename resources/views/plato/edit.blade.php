@@ -4,6 +4,8 @@
 <title>Editar plato</title>
 @endsection
 
+
+
 @section('contenido')
     <form action="/platos/{{$plato->id}}" method="POST">
         @csrf
@@ -15,6 +17,9 @@
         <div class="mb-3">
             <label for="" class="form-label">Descripción</label>
             <input id="descripcion" name="descripcion" type="text" class="form-control" value="{{$plato->descripcion}}" tabindex="2">
+        </div>
+        <div>
+            @include('plato.plato-categorias-edit')
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>

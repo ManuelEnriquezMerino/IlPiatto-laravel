@@ -17,6 +17,9 @@
             <label for="" class="form-label">Descripción</label>
             <input id="descripcion" name="descripcion" type="text" class="form-control" tabindex="2">
         </div>
+        <div>
+            @include('plato.plato-categorias-create')
+        </div>
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>
             <input id="precio" name="precio" type="number" step="any" value="0" class="form-control" tabindex="3">
