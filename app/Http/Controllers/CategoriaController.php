@@ -39,6 +39,11 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
+        $validacion = $request->validate([
+            'nombre' => 'required|max:255|unique:categorias,nombre',
+            'descripcion' => 'required'
+        ]);
+
         $categorias = new Categoria();
 
         $categorias->nombre = $request->get('nombre');
@@ -81,6 +86,11 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validacion = $request->validate([
+            'nombre' => 'required|max:255|unique:categorias,nombre',
+            'descripcion' => 'required'
+        ]);
+        
         $categoria = Categoria::find($id);
 
         $categoria->nombre = $request->get('nombre');

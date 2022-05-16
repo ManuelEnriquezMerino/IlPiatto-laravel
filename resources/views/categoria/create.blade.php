@@ -5,6 +5,8 @@
 @endsection
 
 @section('contenido')
+    @include('components.error-box')
+    
     <h2>Crear Categoria</h2>
 
     <form action="/categorias" method="POST">

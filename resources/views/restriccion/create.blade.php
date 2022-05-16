@@ -5,15 +5,7 @@
 @endsection
 
 @section('contenido')
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-      </div>
-    @endif
+    @include('components.error-box')
 
     <h2>Crear Restriccion</h2>
 

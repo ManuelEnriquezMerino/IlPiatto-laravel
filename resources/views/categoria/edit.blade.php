@@ -5,6 +5,10 @@
 @endsection
 
 @section('contenido')
+    @include('components.error-box')
+
+    <h2>Editar Categoria: {{$categoria->nombre}}</h2>
+
     <form action="/categorias/{{$categoria->id}}" method="POST">
         @csrf
         @method('PUT')
