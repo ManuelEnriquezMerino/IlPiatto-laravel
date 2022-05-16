@@ -14,7 +14,7 @@
       <div class="modal-body">
           @foreach ($restricciones as $restriccion)
             {{ Form::checkbox('restricciones[]', $restriccion->id, $restriccionesActuales->contains($restriccion->id)) }}
-            {{ $restriccion->nombre }}
+            <label title="{{ $restriccion->descripcion }}">{{ $restriccion->nombre }}</label>
           @endforeach
       </div>
       <div class="modal-footer">

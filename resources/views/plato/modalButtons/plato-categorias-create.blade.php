@@ -14,7 +14,7 @@
       <div class="modal-body">
           @foreach ($categorias as $categoria)
             {{ Form::checkbox('categorias[]', $categoria->id)}}
-            {{ $categoria->nombre }}
+              <label title="{{ $categoria->descripcion }}">{{ $categoria->nombre }}</label>
           @endforeach
       </div>
       <div class="modal-footer">
