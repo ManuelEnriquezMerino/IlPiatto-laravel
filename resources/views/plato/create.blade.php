@@ -5,6 +5,8 @@
 @endsection
 
 @section('contenido')
+    @include('components.error-box')
+
     <h2>Crear Plato</h2>
 
     <form action="/platos" method="POST">

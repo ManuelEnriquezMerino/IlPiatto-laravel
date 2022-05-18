@@ -46,6 +46,12 @@ class PlatoController extends Controller
      */
     public function store(Request $request)
     {
+        $validacion = $request->validate([
+            'nombre' => 'required|max:255|unique:platos,nombre',
+            'descripcion' => 'required',
+            'precio' => 'required|gt:0'
+        ]);
+
         $platos = new Plato();
 
         $platos->nombre = $request->get('nombre');
@@ -101,6 +107,12 @@ class PlatoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validacion = $request->validate([
+            'nombre' => 'required|max:255|unique:platos,nombre',
+            'descripcion' => 'required',
+            'precio' => 'required|gt:0'
+        ]);
+
         $plato = Plato::find($id);
 
         $plato->nombre = $request->get('nombre');

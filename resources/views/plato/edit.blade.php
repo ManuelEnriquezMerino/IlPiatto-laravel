@@ -7,6 +7,10 @@
 
 
 @section('contenido')
+    @include('components.error-box')
+
+    <h2>Editar Plato: {{$plato->nombre}}</h2>
+
     <form action="/platos/{{$plato->id}}" method="POST">
         @csrf
         @method('PUT')
