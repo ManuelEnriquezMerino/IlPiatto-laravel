@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('opcionales', function (Blueprint $table) {
             $table->id();
+            $table->integer('plato_id')->unsigned()->index();
+            $table->foreign('plato_id')->references('id')->on('platos')->onDelete('cascade');
             $table->string('nombre');
             $table->text('descripcion');
             $table->integer('precio');

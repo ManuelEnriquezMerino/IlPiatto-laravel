@@ -20,6 +20,7 @@
             <!-- <th scope="col">Imagen</th> -->
             <th scope="col">Categorias</th>
             <th scope="col">Restricciones</th>
+            <th scope="col">Opcionales</th>
             <th scope="col">Precio</th>
             <th scope="col">Acciones</th>
         </tr>
@@ -33,12 +34,17 @@
                 <!-- <td>{{$plato->imagen}}</td> -->
                 <td>
                     @foreach ($plato->categorias as $categoria)
-                        {{$categoria->nombre}}
+                        {{$categoria->nombre}} <br>
                     @endforeach
                 </td>
                 <td>
                     @foreach ($plato->restricciones as $restriccion)
-                        {{$restriccion->nombre}}
+                        {{$restriccion->nombre}} <br>
+                    @endforeach
+                </td>
+                <td>
+                    @foreach ($plato->opcionales as $opcional)
+                        {{$opcional->nombre}} <br>
                     @endforeach
                 </td>
                 <td>{{$plato->precio}}</td>

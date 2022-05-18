@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Categoria;
+use App\Models\Opcional;
+use App\Models\Plato;
 
-class CategoriaController extends Controller
+class OpcionalController extends Controller
 {
     public function __construct(){
         $this->middleware('auth');
@@ -17,8 +18,9 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::all();
-        return view('categoria.index')->with('categorias',$categorias);
+        $opcionales = Opcional::all();
+        return view('opcional.index')
+                    ->with('opcionales',$opcionales);
     }
 
     /**
@@ -28,7 +30,9 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        return view('categoria.create');
+        $platos = Plato::pluck('nombre','id');
+        return view('opcional.create')
+                    ->with('platos',$platos);
     }
 
     /**
@@ -39,19 +43,16 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $validacion = $request->validate([
-            'nombre' => 'required|max:255|unique:categorias,nombre',
-            'descripcion' => 'required'
-        ]);
+        $opcionales = new Opcional();
 
-        $categorias = new Categoria();
+        $opcionales->plato_id = $request->get('plato_id');
+        $opcionales->nombre = $request->get('nombre');
+        $opcionales->descripcion = $request->get('descripcion');
+        $opcionales->precio = $request->get('precio');
 
-        $categorias->nombre = $request->get('nombre');
-        $categorias->descripcion = $request->get('descripcion');
+        $opcionales->save();
 
-        $categorias->save();
-
-        return redirect('/categorias');
+        return redirect('/opcionales');
     }
 
     /**
@@ -73,8 +74,8 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        $categoria = Categoria::find($id);
-        return view('categoria.edit')->with('categoria',$categoria);
+        $opcional = Opcional::find($id);
+        return view('opcional.edit')->with('opcional',$opcional);
     }
 
     /**
@@ -86,19 +87,15 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validacion = $request->validate([
-            'nombre' => 'required|max:255|unique:categorias,nombre',
-            'descripcion' => 'required'
-        ]);
-        
-        $categoria = Categoria::find($id);
+        $opcional = Opcional::find($id);
 
-        $categoria->nombre = $request->get('nombre');
-        $categoria->descripcion = $request->get('descripcion');
+        $opcional->nombre = $request->get('nombre');
+        $opcional->descripcion = $request->get('descripcion');
+        $opcionales->precio = $request->get('precio');
 
-        $categoria->save();
+        $opcional->save();
 
-        return redirect('/categorias');
+        return redirect('/opcionales');
     }
 
     /**
@@ -109,8 +106,8 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        $categoria = Categoria::find($id);
-        $categoria->delete();
-        return redirect('/categorias');
+        $opcional = Opcional::find($id);
+        $opcional->delete();
+        return redirect('/opcionales');
     }
 }

@@ -9,6 +9,10 @@ class Plato extends Model
 {
     use HasFactory;
 
+    public function opcionales(){
+        return $this->hasMany('App\Models\Opcional');
+    }
+
     public function categorias(){
         return $this->belongsToMany('App\Models\Categoria','categoria_plato');
     }
