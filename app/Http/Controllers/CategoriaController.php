@@ -87,7 +87,7 @@ class CategoriaController extends Controller
     public function update(Request $request, $id)
     {
         $validacion = $request->validate([
-            'nombre' => 'required|max:255|unique:categorias,nombre',
+            'nombre' => 'required|max:255|unique:categorias,nombre,'.$id,
             'descripcion' => 'required'
         ]);
         

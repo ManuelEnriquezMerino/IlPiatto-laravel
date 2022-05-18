@@ -108,7 +108,7 @@ class PlatoController extends Controller
     public function update(Request $request, $id)
     {
         $validacion = $request->validate([
-            'nombre' => 'required|max:255|unique:platos,nombre',
+            'nombre' => 'required|max:255|unique:platos,nombre,'.$id,
             'descripcion' => 'required',
             'precio' => 'required|gt:0'
         ]);

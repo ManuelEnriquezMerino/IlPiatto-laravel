@@ -87,7 +87,7 @@ class RestriccionController extends Controller
     public function update(Request $request, $id)
     {
         $validacion = $request->validate([
-            'nombre' => 'required|max:255|unique:restricciones,nombre',
+            'nombre' => 'required|max:255|unique:restricciones,nombre,'.$id,
             'descripcion' => 'required'
         ]);
 
