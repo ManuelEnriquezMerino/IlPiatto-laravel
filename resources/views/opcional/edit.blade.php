@@ -9,6 +9,11 @@
 
     <h2>Editar Opcional: {{$opcional->nombre}}</h2>
 
+    <div class="mb-3">
+            <label for="" class="form-label">Plato</label>
+            <input id="plato" name="plato" type="text" class="form-control" value="{{$opcional->plato->nombre}}" tabindex="1" disabled>    
+    </div>
+
     <form action="/opcionales/{{$opcional->id}}" method="POST">
         @csrf
         @method('PUT')
