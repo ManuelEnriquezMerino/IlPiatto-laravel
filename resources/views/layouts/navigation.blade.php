@@ -70,8 +70,17 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-responsive-nav-link :href="route('platos.index')" :active="request()->routeIs('platos.index')">
+                        {{ __('Platos') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
+                {{ __('Categorias') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('restricciones.index')" :active="request()->routeIs('restricciones.index')">
+                {{ __('Restricciones') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('opcionales.index')" :active="request()->routeIs('opcionales.index')">
+                {{ __('Opcionales') }}
             </x-responsive-nav-link>
         </div>
 
