@@ -43,6 +43,12 @@ class OpcionalController extends Controller
      */
     public function store(Request $request)
     {
+        $validacion = $request->validate([
+            'nombre' => 'required|max:255|unique:opcionales,nombre',
+            'descripcion' => 'required',
+            'precio' => 'required|gt:0'
+        ]);
+
         $opcionales = new Opcional();
 
         $opcionales->plato_id = $request->get('plato_id');
@@ -87,11 +93,17 @@ class OpcionalController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validacion = $request->validate([
+            'nombre' => 'required|max:255|unique:opcionales,nombre,'.$id,
+            'descripcion' => 'required',
+            'precio' => 'required|gt:0'
+        ]);
+
         $opcional = Opcional::find($id);
 
         $opcional->nombre = $request->get('nombre');
         $opcional->descripcion = $request->get('descripcion');
-        $opcionales->precio = $request->get('precio');
+        $opcional->precio = $request->get('precio');
 
         $opcional->save();
 
