@@ -16,13 +16,13 @@ class RestriccionesSeeder extends Seeder
     public function run()
     {
         Restriccion::create([
-            //'id' => '1',
+            //id=1
             'nombre' => 'Vegano',
             'descripcion' => 'Platos que no contienen derivados de animales'
         ]);
 
         Restriccion::create([
-            //'id' => '2',
+            //id=2
             'nombre' => 'Celiaco',
             'descripcion' => 'Platos que solo contienen alimentos sin TACC'
         ]);
