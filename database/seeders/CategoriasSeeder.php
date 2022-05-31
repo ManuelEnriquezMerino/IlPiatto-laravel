@@ -16,13 +16,13 @@ class CategoriasSeeder extends Seeder
     public function run()
     {
         Categoria::create([
-            'id' => '1',
+            //id=1
             'nombre' => 'Carnes',
             'descripcion' => 'Platos basados en distintos tipos de carnes'
         ]);
 
         Categoria::create([
-            'id' => '2',
+            //id=2
             'nombre' => 'Pastas',
             'descripcion' => 'Platos basados en Pastas'
         ]);
