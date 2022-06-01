@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('opcional_pedido_plato', function (Blueprint $table) {
             $table->id();
-            $table->integer('opcional_id')->unsigned()->index();
+            $table->integer('opcional_id')->unsigned()->index()->nullable();
             $table->foreign('opcional_id')->references('id')->on('opcionales')->onDelete('cascade');
             $table->integer('pedido_id')->unsigned()->index();
             $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade');
             $table->integer('plato_id')->unsigned()->index();
             $table->foreign('plato_id')->references('id')->on('platos')->onDelete('cascade');
-            $table->integer('N_orden')->unsigned()->index();
+            $table->integer('n_orden')->unsigned()->index();
             $table->timestamps();
         });
     }
