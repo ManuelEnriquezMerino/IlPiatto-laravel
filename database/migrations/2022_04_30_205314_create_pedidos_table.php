@@ -18,6 +18,8 @@ return new class extends Migration
             $table->dateTime('fecha');
             $table->string('direccion');
             $table->integer('precio');
+            $table->integer('cliente_id')->unsigned()->index();
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
             $table->timestamps();
         });
     }

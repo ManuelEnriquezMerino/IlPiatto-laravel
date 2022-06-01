@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RestriccionesSeeder::class);
         $this->call(PlatosSeeder::class);
         $this->call(OpcionalesSeeder::class);
+        $this->call(ClientesSeeder::class);
     }
 }
