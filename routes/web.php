@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlatoController;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\RestriccionController;
+use App\Http\Controllers\OpcionalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +20,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('platos', PlatoController::class);
+
+Route::resource('categorias', CategoriaController::class);
+
+Route::resource('restricciones', RestriccionController::class);
+
+Route::resource('opcionales', OpcionalController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
